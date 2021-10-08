@@ -19,7 +19,8 @@ jobs:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_USERNAME: waffle-backend
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_USER: waffle-backend
           MYSQL_PASSWORD: seminar
           MYSQL_DATABASE: waffle_backend_2
         ports: ['3306:3306']
