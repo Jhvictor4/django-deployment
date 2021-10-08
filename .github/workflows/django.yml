@@ -43,7 +43,7 @@ jobs:
         DBUSER: waffle-backend
         DBPASSWORD: seminar
         DBHOST: 127.0.0.1
-        DBPORT: 3306
+        DBPORT: $
       working-directory: ./assignment2/
     - name: Run Tests
       run: |
@@ -54,5 +54,5 @@ jobs:
         DBUSER: waffle-backend
         DBPASSWORD: seminar
         DBHOST: 127.0.0.1
-        DBPORT: 3306
+        DBPORT: $
       working-directory: ./assignment2/
