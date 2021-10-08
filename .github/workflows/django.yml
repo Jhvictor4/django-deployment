@@ -33,7 +33,7 @@ jobs:
         python-version: 3.8
     - uses: actions/checkout@v2
     - name: mysql
-      run: mysql -h 127.0.0.1 --port 3306 -uroot -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'waffle-backend'@'%';
+      run: mysql -h 127.0.0.1 --port 3306 -uroot -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'waffle-backend'@'%';"
     - name: Set up Python 3.8.3
       uses: actions/setup-python@v2
       with:
