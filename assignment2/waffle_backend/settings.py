@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'waffle_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PORT': 3306,
         'NAME': 'waffle_backend_2',  # database name 변경
         'USER': 'waffle-backend',
