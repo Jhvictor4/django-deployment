@@ -31,6 +31,16 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.8
+    - uses: actions/checkout@v2
+    - name: Verify MySQL connection
+      run: |
+        mysql --version
+        sudo apt-get install -y mysql-client
+        mysql --host 127.0.0.1 --port 3306 -uroot -proot -e "SHOW DATABASES"
+    - name: Set up Python 3.8.3
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8.3
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
