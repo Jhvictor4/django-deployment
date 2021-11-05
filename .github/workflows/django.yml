@@ -15,16 +15,6 @@ jobs:
       matrix:
         python-version: [3.8]
 
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_USER: waffle-backend
-          MYSQL_PASSWORD: seminar
-          MYSQL_DATABASE: waffle_backend_2
-        ports: ['3306:3306']
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python $
@@ -32,8 +22,6 @@ jobs:
       with:
         python-version: 3.8
     - uses: actions/checkout@v2
-    - name: mysql
-      run: mysql -h 127.0.0.1 --port 3306 -uroot -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'waffle-backend'@'%';"
     - name: Set up Python 3.8.3
       uses: actions/setup-python@v2
       with:
@@ -44,22 +32,8 @@ jobs:
         pip install -r assignment2/requirements.txt
     - name: Run Migrations
       run: python manage.py migrate
-      env: 
-        DBENGINE: django.db.backends.mysql
-        DBNAME: waffle_backend_2
-        DBUSER: waffle-backend
-        DBPASSWORD: seminar
-        DBHOST: 127.0.0.1
-        DBPORT: 3306
       working-directory: ./assignment2/
     - name: Run Tests
       run: |
         python manage.py test
-      env: 
-        DBENGINE: django.db.backends.mysql
-        DBNAME: waffle_backend_2
-        DBUSER: waffle-backend
-        DBPASSWORD: seminar
-        DBHOST: 127.0.0.1
-        DBPORT: 3306
       working-directory: ./assignment2/
