@@ -177,3 +177,15 @@ JWT_AUTH = {
 AUTH_USER_MODEL = 'user.User'
 
 SITE_ID = 3
+
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": 'redis://localhost:6379/0',
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "SERIALIZER": "django_redis.serializers.json.JSONSerializer",
+        }
+    },
+}

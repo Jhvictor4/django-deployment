@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="3.37.16.171" id="4f8bd2db-e8a9-427b-a04b-91e7d7f01e97" keyPath="$USER_HOME$/.ssh/django-seminar.pem" port="22" nameFormat="DESCRIPTIVE" username="ec2-user" />
+    </configs>
+  </component>
+</project>

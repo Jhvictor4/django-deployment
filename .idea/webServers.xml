@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="52432a36-6536-4d12-bd2f-0cd36c31f266" name="seminar server">
+        <fileTransfer rootFolder="/home/ec2-user/server" accessType="SFTP" host="3.37.16.171" port="22" sshConfigId="4f8bd2db-e8a9-427b-a04b-91e7d7f01e97" sshConfig="ec2-user@3.37.16.171:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

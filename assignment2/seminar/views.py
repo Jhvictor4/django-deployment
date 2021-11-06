@@ -94,8 +94,9 @@ class UserSeminarView(APIView):
 @api_view(['GET'])
 def query_practice(request):
 
-    survey = SurveyResult.objects.filter(
-        rdb__gt=F('python')
-    ).count()
+    from django.core.cache import cache
+    ret = cache.get('recent_user', {})
+    if not ret:
+        cache.set('recent_user', str(request.user.email))
 
-    return Response(data=survey)
+    return Response(data=ret)

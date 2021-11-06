@@ -10,5 +10,4 @@ router.register('os', OperatingSystemViewSet, basename='os')
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('template', top_50)
 ]
