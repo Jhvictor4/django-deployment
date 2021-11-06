@@ -28,7 +28,7 @@ class SurveyResultViewSet(viewsets.GenericViewSet):
     def create(self, request):
         # copy makes request.data mutable
         data = request.data.copy()
-        data.update(os_name=data.get('os'))
+        data.update(os_name=data.get('os_name'))
 
         serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)

@@ -62,7 +62,7 @@ class SeminarViewSet(GenericViewSet):
             return Response(status=status.HTTP_404_NOT_FOUND, data='그런 세미나는 없습니다.')
 
         serializer = self.get_serializer(data=request.data, context={'request': request}, partial=True)
-        serializer.is_valid()
+        serializer.is_valid(raise_exception=True)
         serializer.update(seminar, serializer.validated_data)
 
         return Response(self.get_serializer(seminar).data, status=status.HTTP_200_OK)
@@ -94,7 +94,6 @@ class UserSeminarView(APIView):
 @api_view(['GET'])
 def query_practice(request):
 
-    print(request.query_params)
     survey = SurveyResult.objects.filter(
         rdb__gt=F('python')
     ).count()
