@@ -31,7 +31,9 @@ class SeminarViewSet(GenericViewSet):
 
     def list(self, request):
         serializer = SeminarViewSerializer
-        return Response(serializer(self.queryset, many=True).data)
+        sz = serializer(self.queryset, many=True)
+        print(sz.context)
+        return Response(sz.data)
 
     def retrieve(self, request, pk=None):
 
@@ -98,5 +100,11 @@ def query_practice(request):
     ret = cache.get('recent_user', {})
     if not ret:
         cache.set('recent_user', str(request.user.email))
+
+    class S(serializers.Serializer):
+        pass
+
+    sz = S(request)
+    print(sz.context)
 
     return Response(data=ret)
